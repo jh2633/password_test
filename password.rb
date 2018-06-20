@@ -2,24 +2,16 @@ require 'sinatra'
 class Password
   MIN_LENGTH = 10
 
-  def initialize(password_string)
+  def initialize(password_string, rules)
     @password = password_string
-    @criteria = []
-
+    @rules = rules
   end
 
-  def attributes
-    uppercase(@password)
-    lowercase(@password)
-    integer(@password)
-    special(@password)
-    @criteria
-  end
 
   def strength
     if min_length(@password)
       if no_repetition(@password)
-
+        'strong'
       else
         'weak'
       end
@@ -54,8 +46,9 @@ class Password
   end
 
   def no_repetition(password)
-
+    password.match?(/'(.)\1{2,}'/)
   end
+  
   def min_length(password)
     password.length >= MIN_LENGTH
   end
