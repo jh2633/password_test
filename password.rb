@@ -4,6 +4,16 @@ class Password
 
   def initialize(password_string)
     @password = password_string
+    @criteria = []
+
+  end
+
+  def attributes
+    uppercase(@password)
+    lowercase(@password)
+    integer(@password)
+    special(@password)
+    @criteria
   end
 
   def strength
@@ -19,7 +29,29 @@ class Password
   end
 
   private
+  def uppercase(password)
+    if password.match?(/[A-Z]/)
+      @criteria << :uppercase
+    end
+  end
 
+  def lowercase(password)
+    if password.match?(/[a-z]/)
+      @criteria << :lowercase
+      end
+  end
+
+  def integer(password)
+    if password.match?(/[0-9]/)
+      @criteria << :integer
+    end
+  end
+
+  def special(password)
+    if  password.match?(/\W/)
+      @criteria << :special_character
+    end
+  end
 
   def no_repetition(password)
 
