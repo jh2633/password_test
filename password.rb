@@ -1,4 +1,3 @@
-require 'sinatra'
 class Password
 
   def initialize(password_string ,
@@ -37,6 +36,7 @@ class Password
 
   def meets_required_rules
     @required_rules.all? {|name, pattern| @password.match?(pattern)}
+
   end
 
   def meets_optional_rules
