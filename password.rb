@@ -1,6 +1,5 @@
 require 'sinatra'
 class Password
-  PWD_SCORE = {3 => 'ok', 4 => 'strong'}
 
   def initialize(password_string ,
                   rules: {uppercase: /[A-Z]/, lowercase: /[a-z]/, integer: /[0-9]/, special: /\W/ },
