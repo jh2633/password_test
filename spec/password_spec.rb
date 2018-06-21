@@ -10,7 +10,7 @@ describe Password do
     let(:short_password)      {Password.new('Asd$123ZX')}
 
 
-    describe 'password strength' do
+    describe 'password strength by default rules' do
       it 'returns strong for a strong password' do
         expect(strong_password.strength).to eq('strong')
       end
@@ -20,7 +20,7 @@ describe Password do
       end
 
       it 'returns weak for a password meeting less than 3 criteria' do
-        expect(bad_password.strength).to eq('weak')
+        expect(weak_password.strength).to eq('weak')
       end
 
 
