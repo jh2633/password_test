@@ -1,5 +1,5 @@
 require './password'
-require './sinatra_server'
+require './app'
 require 'capybara'
 require 'capybara/rspec'
 
@@ -43,7 +43,7 @@ describe Password do
     describe 'password strength by custom rules' do
       let(:custom_strong_password) {Password.new('aaaaaaaaaa', score: {strong: 1})}
       let(:custom_rule_password) {Password.new('aaaaaaaaaa', score: {strong: 1})}
-      let(:custom_requirement_password) {Password.new('Asd$123ZX', requirement: {})}
+      let(:custom_requirement_password) {Password.new('Asd$3', requirement: {})}
 
       it 'returns strong for a password that meets one rule' do
         expect(custom_strong_password.strength).to eq('strong')
@@ -62,7 +62,7 @@ describe "visit password strength page", type: :feature do
 
   it "has title password strength" do
     visit '/'
-    expect(page).to have_content 'password strength!'
+    expect(page).to have_content 'Password Strength Test!'
   end
 end
 end

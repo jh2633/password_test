@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'password strength!'
+  erb :password_form
 end
