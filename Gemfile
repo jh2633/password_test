@@ -1,9 +1,10 @@
 source 'https://rubygems.org' do
   gem 'sinatra'
-  gem 'thin'
+  gem 'puma'
 
   group :test do
     gem 'capybara'
     gem 'rspec'
+    gem 'capybara-selenium'
   end
 end

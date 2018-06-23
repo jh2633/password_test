@@ -1,15 +1,4 @@
-require './password'
-require './app'
-require 'capybara'
-require 'capybara/rspec'
-
-Capybara.app = Sinatra::Application
-RSpec.configure do |config|
-  config.include Capybara
-end
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
-end
+require 'spec_helper'
 
 describe Password do
   describe 'password strength' do
@@ -58,16 +47,26 @@ describe Password do
 
   end
 
-describe "visit password strength page", type: :feature do
+  describe "visit password strength page", type: :feature do
 
-  it "has title password strength" do
-    visit '/'
-    expect(page).to have_content 'Password Strength Test!'
+    it "has title password strength" do
+      visit '/'
+      expect(page).to have_content 'Password Strength Test!'
+    end
+
+    it "does not analyze an empty field" do
+      visit '/'
+      expect(page).to have_no_content 'weak'
+    end
   end
 
-  it "does not analyze an empty field" do
-    visit '/'
-    expect(page).to have_no_content 'weak'
+  describe "password analysis feature", js: true, type: :feature do
+
+    it "returns weak for a weak password" do
+      visit '/'
+      fill_in 'pwd', with: 'password'
+      expect(page).to have_content 'weak'
+    end
+
   end
-end
 end
