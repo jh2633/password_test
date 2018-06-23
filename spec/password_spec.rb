@@ -62,11 +62,31 @@ describe Password do
 
   describe "password analysis feature", js: true, type: :feature do
 
-    it "returns weak for a weak password" do
+    it "returns weak for a password meeting less than three requirements" do
       visit '/'
       fill_in 'pwd', with: 'password'
       expect(page).to have_content 'weak'
     end
+
+    it "returns weak for a password meeting all requirement except for length" do
+      visit '/'
+      fill_in 'pwd', with: 'aSh0rtpw!'
+      expect(page).to have_content 'weak'
+    end
+
+
+    it "returns ok for a password meeting three requirements" do
+      visit '/'
+      fill_in 'pwd', with: 'asdf123ZXC'
+      expect(page).to have_content 'ok'
+    end
+
+    it "returns strong for a password meeting all requirements" do
+      visit '/'
+      fill_in 'pwd', with: 'Asd$123ZXC'
+      expect(page).to have_content 'strong'
+    end
+
 
   end
 end
