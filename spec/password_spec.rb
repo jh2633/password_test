@@ -64,5 +64,10 @@ describe "visit password strength page", type: :feature do
     visit '/'
     expect(page).to have_content 'Password Strength Test!'
   end
+
+  it "does not analyze an empty field" do
+    visit '/'
+    expect(page).to have_no_content 'weak'
+  end
 end
 end

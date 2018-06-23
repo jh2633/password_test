@@ -1,6 +1,9 @@
 source 'https://rubygems.org' do
   gem 'sinatra'
   gem 'thin'
-  gem 'capybara'
-  gem 'rspec'
+
+  group :test do
+    gem 'capybara'
+    gem 'rspec'
+  end
 end
