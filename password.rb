@@ -17,7 +17,7 @@ class Password
       meets_optional_rules
       password_scoring
     else
-      'weak'
+      "weak"
     end
   end
 

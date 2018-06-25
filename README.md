@@ -21,7 +21,7 @@
 
 ### Configuration (with docker)
 - git clone the project
-- run docker build .
+- run `docker build .`
 - After the image builds, run the image as follow
 
   `docker run -p 4567:4567 <DOCKER:IMAGE_ID>`
@@ -33,6 +33,10 @@ The two parts of the test to implement for this tests are below
 - Implement a small front end application that calls the back-end service to measure the password and show the user the strength of their password as they are typing.
 
 ### To-Dos
+- Extract the 'criteria' from the password class into its own class
+- Allow non regex rules implementation
+- Allow response from 'strength' method to respond with a hash that perhaps contain the criteria the password has met, which can also be converted into a JSON response.
+- Implement and test colour changing for reach of the password criteria that has been met
 
 ### Criteria for 'secure' password and other thoughts
 
