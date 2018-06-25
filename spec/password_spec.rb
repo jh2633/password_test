@@ -5,7 +5,7 @@ describe Password do
     #see README for the strong, ok, weak criteria
     let(:strong_password)     {Password.new('Asd$123ZXC')}
     let(:ok_password)         {Password.new('asdf123ZXC')}
-    let(:weak_password)        {Password.new('asdf123zxc')}
+    let(:weak_password)       {Password.new('asdf123zxc')}
     #passwords that meet the 4 criteria but are either short or repetitive will
     #still get a 'weak' message
     let(:short_password)      {Password.new('Asd$123ZX')}

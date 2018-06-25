@@ -1,3 +1,8 @@
+Configuration
+- The password class uses the match! method to return a boolean for evaluating a string to a regex pattern. This method was added in Ruby 2.4
+- Capybara uses headless chrome as its javascript driver in this application's configuration. This is a cask package that would need to be installed if not already available on the machine, in addition to the Chrome browser.
+brew cask install chromedriver
+
 The two parts of the test to implement for this tests are below
 - Implement a back-end service that will receive the password and return either "weak", "ok" or "strong";
 - Implement a small front end application that calls the back-end service to measure the password and show the user the strength of their password as they are typing.
