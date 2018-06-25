@@ -1,5 +1,5 @@
 source 'https://rubygems.org' do
-  ruby "~> 2.4.0"
+  ruby ">= 2.4.0"
   gem 'sinatra'
   gem 'puma'
   gem 'rake'

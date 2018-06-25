@@ -4,7 +4,7 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 
 
-Capybara.app = Sinatra::Application
+Capybara.app = App
 RSpec.configure do |config|
   config.include Capybara
 
