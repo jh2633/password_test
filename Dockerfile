@@ -18,4 +18,4 @@ RUN bundle install
 # Copy the application into place
 COPY . .
 EXPOSE 4567
-CMD ["rake", "server:run"]
+CMD ["rake", "server:start"]

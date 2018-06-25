@@ -1,13 +1,40 @@
-Configuration
-- The password class uses the match! method to return a boolean for evaluating a string to a regex pattern. This method was added in Ruby 2.4
-- Capybara uses headless chrome as its javascript driver in this application's configuration. This is a cask package that would need to be installed if not already available on the machine, in addition to the Chrome browser.
-brew cask install chromedriver
+### Configuration(no docker)
+- The password class uses the match! method to return a boolean for evaluating a string to a regex pattern. This method was added in Ruby 2.4.
 
+- Run `gem install bundler` if you do not have bundler
+- Run `bundle` to install dependencies in Gemfile
+- Run `rake server:start` to start the server using the rake task
+- Navigate to localhost:4567 to see the page :)
+
+##### Integration tests
+- Capybara uses headless chrome as its javascript driver in this application's configuration. This is a cask package that would need to be installed if not already available on the machine, in addition to the Chrome browser.
+
+  `brew cask install chromedriver`
+- The default option with Selenium is also available, however you would need to download the Firefox browser, as well as commenting out the Chrome related configuration in spec_helper.rb
+
+- You can also try to run the test using Webkit. There are three steps you need to take:
+
+
+1. Install Qt5, a 'cross-platform development tool-kit'. Instructions here(https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+2. Add gem 'capybara-webkit' to the Gemfile and bundle install
+3. Uncomment the last section in spec_helper.rb to make webkit your Capybara driver.
+
+### Configuration (with docker)
+- git clone the project
+- run docker build .
+- After the image builds, run the image as follow
+
+  `docker run -p 4567:4567 <DOCKER:IMAGE_ID>`
+- The application should now be running on localhost:4567
+
+### Task Brief
 The two parts of the test to implement for this tests are below
 - Implement a back-end service that will receive the password and return either "weak", "ok" or "strong";
 - Implement a small front end application that calls the back-end service to measure the password and show the user the strength of their password as they are typing.
 
-### Criteria for 'secure' password
+### To-Dos
+
+### Criteria for 'secure' password and other thoughts
 
 It is important to first define what would constitute the three different levels of password strength laid out in this brief. For example, the OWASP documentation for password complexity says that 3 out of these 4 elements would need to be present:
 - at least 1 uppercase character (A-Z)

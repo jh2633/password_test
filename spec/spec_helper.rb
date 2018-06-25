@@ -34,5 +34,6 @@ Capybara.javascript_driver = :chrome
 # require 'capybara-webkit'
 # Capybara.javascript_driver = :webkit
 # Capybara::Webkit.configure do |config|
+#   config.allow_url("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 #   config.allow_url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
 # end
