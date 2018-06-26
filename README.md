@@ -25,6 +25,8 @@ The two parts of the test to implement for this tests are below
 2. Add gem 'capybara-webkit' to the Gemfile and bundle install
 3. Uncomment the last section in spec_helper.rb to make webkit your Capybara driver.
 
+- run the `rspec` to run the tests
+
 ### Configuration (with docker)
 - git clone the project
 - run `docker build .`
