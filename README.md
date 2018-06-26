@@ -12,6 +12,7 @@ The two parts of the test to implement for this tests are below
 - Navigate to localhost:4567 to see the page :)
 
 ##### Integration tests
+- Note: Integration test can occasionally be dodgy due to ajax call not being complete before change is evaluated. This is put in To-Do to be fixed and may occasionally cause a failed test.
 - Capybara uses headless chrome as its javascript driver in this application's configuration. This is a cask package that would need to be installed if not already available on the machine, in addition to the Chrome browser.
 
   `brew cask install chromedriver`
@@ -38,6 +39,8 @@ The two parts of the test to implement for this tests are below
 - Allow response from 'strength' method to respond with a hash that perhaps contain the criteria the password has met, which can also be converted into a JSON response.
 - Implement and test colour changing for reach of the password criteria that has been met
 - Add another criteria for checking if there are repetition in password, as this was one of the main secure criteria from OWASP below.
+- Implement rspec tests on Docker container
+- Add Ajax wait method for Capybara integration tests
 
 ### Criteria for 'secure' password and other thoughts
 
