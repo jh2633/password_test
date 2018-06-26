@@ -37,6 +37,7 @@ The two parts of the test to implement for this tests are below
 - Allow non regex rules implementation
 - Allow response from 'strength' method to respond with a hash that perhaps contain the criteria the password has met, which can also be converted into a JSON response.
 - Implement and test colour changing for reach of the password criteria that has been met
+- Add another criteria for checking if there are repetition in password, as this was one of the main secure criteria from OWASP below.
 
 ### Criteria for 'secure' password and other thoughts
 
