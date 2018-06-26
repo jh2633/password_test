@@ -1,5 +1,5 @@
 require 'sinatra'
-require_relative 'password'
+require_relative 'model/password'
 
 class App < Sinatra::Base
 

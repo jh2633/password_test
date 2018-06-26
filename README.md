@@ -1,6 +1,11 @@
-### Configuration(no docker)
-- The password class uses the match! method to return a boolean for evaluating a string to a regex pattern. This method was added in Ruby 2.4.
+### Task Brief
+The two parts of the test to implement for this tests are below
+- Implement a back-end service that will receive the password and return either "weak", "ok" or "strong";
+- Implement a small front end application that calls the back-end service to measure the password and show the user the strength of their password as they are typing.
 
+### Configuration(no docker)
+- The password class uses the match! method to return a boolean for evaluating a string to a regex pattern. This method was added in Ruby 2.4. Ruby Version Manager (rvm) is a great tool in case you need to upgrade your Ruby version
+- git clone this repo
 - Run `gem install bundler` if you do not have bundler
 - Run `bundle` to install dependencies in Gemfile
 - Run `rake server:start` to start the server using the rake task
@@ -26,11 +31,6 @@
 
   `docker run -p 4567:4567 <DOCKER:IMAGE_ID>`
 - The application should now be running on localhost:4567
-
-### Task Brief
-The two parts of the test to implement for this tests are below
-- Implement a back-end service that will receive the password and return either "weak", "ok" or "strong";
-- Implement a small front end application that calls the back-end service to measure the password and show the user the strength of their password as they are typing.
 
 ### To-Dos
 - Extract the 'criteria' from the password class into its own class
