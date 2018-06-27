@@ -7,7 +7,7 @@ class App < Sinatra::Base
     erb :password_form
   end
 
-  post '/password' do
+  get '/password' do
     Password.new(params[:password]).strength
   end
 end
